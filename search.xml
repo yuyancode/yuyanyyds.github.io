@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>导读--关于图片</title>
+    <url>/2021/06/21/%E5%AF%BC%E8%AF%BB-%E5%85%B3%E4%BA%8E%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>关于文章中的图片，由于hexo的种种技术问题，如果文章中图片看不见，请点击首页中相应的文章，其他页面文章的图片暂时无法正常显示。</p>
+]]></content>
+      <tags>
+        <tag>导读</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/06/17/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
