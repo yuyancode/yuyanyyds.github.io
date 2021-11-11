@@ -483,6 +483,8 @@
     <title>MYSQL笔记</title>
     <url>/2021/11/09/MYSQL%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h3 id="MYSQL常用命令"><a href="#MYSQL常用命令" class="headerlink" title="MYSQL常用命令"></a>MYSQL常用命令</h3><p>1.启用/暂停/退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称)//必须要以管理员身份运行命令行cmd，本机已经设置cmd默认管理员身份运行。</p>
+<span id="more"></span>
+
 <p>​                                                      暂停——&gt;net stop mysql80</p>
 <p>​                                                      退出——&gt;exit                            </p>
 <p>2.查看有哪些数据库：show databases;(注意mysql命令以英文的分号;结尾)</p>
