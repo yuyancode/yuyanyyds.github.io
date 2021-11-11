@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"yuyanyyds.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="MYSQL常用命令1.启用&#x2F;暂停&#x2F;退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称) ​                                                      暂停——&gt;net stop mysql80 ​">
+  <meta name="description" content="MYSQL常用命令1.启用&#x2F;暂停&#x2F;退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称)&#x2F;&#x2F;必须要以管理员身份运行命令行cmd，本机已经设置cmd默认管理员身份运行。 ​                                                      暂停——&gt;net stop mysql80 ​">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MYSQL笔记">
 <meta property="og:url" content="http://yuyanyyds.github.io/2021/11/09/MYSQL%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="遇言の学习小屋">
-<meta property="og:description" content="MYSQL常用命令1.启用&#x2F;暂停&#x2F;退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称) ​                                                      暂停——&gt;net stop mysql80 ​">
+<meta property="og:description" content="MYSQL常用命令1.启用&#x2F;暂停&#x2F;退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称)&#x2F;&#x2F;必须要以管理员身份运行命令行cmd，本机已经设置cmd默认管理员身份运行。 ​                                                      暂停——&gt;net stop mysql80 ​">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-09T10:56:37.000Z">
-<meta property="article:modified_time" content="2021-11-10T08:32:14.526Z">
+<meta property="article:modified_time" content="2021-11-11T14:46:28.443Z">
 <meta property="article:author" content="遇言">
 <meta property="article:tag" content="MYSQL java后端">
 <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-10 16:32:14" itemprop="dateModified" datetime="2021-11-10T16:32:14+08:00">2021-11-10</time>
+                <time title="修改时间：2021-11-11 22:46:28" itemprop="dateModified" datetime="2021-11-11T22:46:28+08:00">2021-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,14 +242,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>4.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -261,7 +261,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="MYSQL常用命令"><a href="#MYSQL常用命令" class="headerlink" title="MYSQL常用命令"></a>MYSQL常用命令</h3><p>1.启用/暂停/退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称)</p>
+        <h3 id="MYSQL常用命令"><a href="#MYSQL常用命令" class="headerlink" title="MYSQL常用命令"></a>MYSQL常用命令</h3><p>1.启用/暂停/退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称)//必须要以管理员身份运行命令行cmd，本机已经设置cmd默认管理员身份运行。</p>
 <p>​                                                      暂停——&gt;net stop mysql80</p>
 <p>​                                                      退出——&gt;exit                            </p>
 <p>2.查看有哪些数据库：show databases;(注意mysql命令以英文的分号;结尾)</p>
@@ -275,15 +275,6 @@
 <p>10.查看MYSQL版本号：select version();</p>
 <p>11.查看当前使用的数据库：select database();</p>
 <p>12.终止命令的输入:\c或者;(英文)（使用；会执行之前写的所有语句，而\c直接结束这条命令的输入，之前的输入无效。</p>
-<p>13.简单查询</p>
-<p>​    13.1查询一个字段：select  字段名 from 表名;</p>
-<p>​    13.2查询两个字段：select  字段名1,字段名2 from 表名;（n个字段类推）</p>
-<p>​    13.3查询所有字段：方式1：用13.2把 所有字段都一个个写上；</p>
-<p>​                                        方式2：select  * from 表名;（不建议用）</p>
-<p>​    13.4给查询的列起别名：select 列名 as 别名 from 表名；</p>
-<p>​    14.列参与运算：select 列名*12(数学表达式可以自由改变) from 表名；</p>
-<p>​            </p>
-<p>​            </p>
 <hr>
 <h3 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h3><p>DQL:</p>
 <p>数据查询语言（凡是带有select关键字的都是查询语句）</p>
@@ -309,7 +300,7 @@
 <p>是数据控制语言</p>
 <p>例如：授权grant、撤销权限revoke…</p>
 <hr>
-<h3 id="导入数据-amp-查看表的数据or结构"><a href="#导入数据-amp-查看表的数据or结构" class="headerlink" title="导入数据&amp;查看表的数据or结构"></a>导入数据&amp;查看表的数据or结构</h3><p>首先要有一个sql文件</p>
+<h3 id="导入数据-amp-查看表的数据或结构"><a href="#导入数据-amp-查看表的数据或结构" class="headerlink" title="导入数据&amp;查看表的数据或结构"></a>导入数据&amp;查看表的数据或结构</h3><p>首先要有一个sql文件</p>
 <p>导入命令：source 路径名（路径中不要有中文）</p>
 <p>查看表的数据：select * from 表名;</p>
 <p>查看表的结构：desc     表名;（desc是describe的缩写）</p>
@@ -330,6 +321,8 @@
 <p>注意：方式2的效率低且可读性差。在实际开发中不建议写，可以自己玩，在dos命令窗口中想快速看一看全表数据可以使用这种方式。</p>
 <hr>
 <h3 id="给查询的列起别名"><a href="#给查询的列起别名" class="headerlink" title="给查询的列起别名"></a>给查询的列起别名</h3><p>select 列名 as 别名 from 表名；</p>
+<p>结论：字段可以参加数学运算</p>
+<p>注意：</p>
 <p>1.当别名里面没有空格时，可以把as省略，变成空格。select 列名 别名 from 表名；</p>
 <p>2.有别名空格时可以用单引号或者双引号（不标准）括起来；//单引号是标准，一般数据库所有字符串都用单引号括起来。</p>
 <p>3.别名是中文的时候也要用单引号括起来；</p>
@@ -337,7 +330,152 @@
 <p>select不会改变数据库里面的内容；</p>
 <hr>
 <h3 id="列参与数学运算"><a href="#列参与数学运算" class="headerlink" title="列参与数学运算"></a>列参与数学运算</h3><p>select 列名*12（数学运算式可以按照要求自己写，这时显示的列名会变成类名乘以12，如果觉得不好看可以用as起别名） from 表名；</p>
-
+<hr>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p>查询符合条件的数据。</p>
+<p>1.语法格式： </p>
+<p>select</p>
+<p>​        字段1，字段2，字段3…</p>
+<p>from</p>
+<p>​        表名</p>
+<p>where</p>
+<p>​        条件；</p>
+<p>2.条件有：</p>
+<p>=    等于</p>
+<p>&lt;&gt;或！=不等于</p>
+<p>&lt;,&gt;大于和小于；&lt;=,&gt;=小于等于和大于等于；</p>
+<p>between…and…两个值之间，等同于 &gt;= and &lt;= ；注意：必须遵循左小右大；是闭区间；</p>
+<p>is null 为空（is not null 不为空）注：数据库里的null不能用=衡量，只能用is</p>
+<p>and并且</p>
+<p>or或者</p>
+<p>in包含，相当于多个or（not in 不在这个范围之中）//in后面跟的是具体的值，不是区间。例子：num in（800,5000）找出num为800和5000的num，不是找800-5000之间的所有的num。</p>
+<p>not  可以取非，主要用在is或in中</p>
+<p>like 称为模糊查询，支持%或下划线匹配查找特殊字符入_时会导致歧义，这时候可以使用转义子父来查询。</p>
+<p>%匹配任意多个字符</p>
+<p>下划线，一个下划线只匹配任意一个字符</p>
+<p>注意：条件之间有优先级关系，注意使用括号。</p>
+<hr>
+<h3 id="查询排序"><a href="#查询排序" class="headerlink" title="查询排序"></a>查询排序</h3><p>格式：</p>
+<p>select 列名 from 表名 order by 排序条件列；默认升序查询</p>
+<p>select 列名 from 表名 order by 排序条件列 asc；指定升序查询</p>
+<p>select 列名 from 表名 order by 排序条件列 desc；指定降序查询</p>
+<p>注意：关键字的顺序不能改变</p>
+<p>select    …    from    …    where    …    group by     …    order by    …</p>
+<p>执行顺序：</p>
+<p>第一步    from</p>
+<p>第二步    where</p>
+<p>第三步    group by</p>
+<p>第四步    having（必配合group by使用）</p>
+<p>第五步     select</p>
+<p>第六步     order by（排序总在最后执行！）</p>
+<p>（因为group by 在where后面，而分组函数使用前必须进行分组，所以where子句中不可以使用分组函数）</p>
+<p>按多个字段排序：</p>
+<p>select 列名 form 表名 order by 排序条件1 排序升降序，排序条件2 排序升降序；</p>
+<p>注意：这里的排序主要是按照排序条件1的顺序来排，当两项的排序条件1相同时才使用排序条件2比较排出二者顺序。</p>
+<p>按照字段的顺序来排</p>
+<p>select 列名 form 表名 order by 列数；（按表中的第二列来排）</p>
+<p>不建议使用，因为不健壮，列的顺序很容易发生改变。</p>
+<p>注：select后面可以跟某个字段名（看做变量）或者字面量/字面值</p>
+<hr>
+<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>概述：数据处理函数又被称为单行处理函数。</p>
+<p>单行处理函数的特点：一个输入对应一个输出。</p>
+<p>和单行处理函数对应的是多行处理函数：多个输入对应一个输出。</p>
+<p>常见的单行处理函数：</p>
+<p>sum()    求和函数</p>
+<p>lower()     转换小写</p>
+<p>upper()    转换大写</p>
+<p>substr()    取子串//起始下标是1select substr(ename,1,1);从第一个字母开始截取，截取的长度为1；</p>
+<p>concat()    字符串拼接</p>
+<p>length()    取字符串长度</p>
+<p>trim()    去除字符串中的空格</p>
+<p>str_to_date()     将字符串转换成日期</p>
+<p>date_format    格式化日期</p>
+<p>format()    设置千分位</p>
+<p>round(num,保留小数位数)    四舍五入//如果是负数就是继续往左边四舍五入个，十，百，千，万。。。</p>
+<p>rand()    生成0-1内的随机数</p>
+<p>ifnull(数据，代替值)    空处理函数，当数据为NULL时，数据就会被代替值代替//注意在数据库中，只要有NULL参与的数学运算式，其结果就是NULL，但分组函数自动忽略NULL；</p>
+<p>case…when…then …when…then …else …end</p>
+<p>注：改变表中的数据大小都是在select后面直接写的，不在其他地方写。（但只是改变显示的大小，不改变数据库中真实的数据）</p>
+<hr>
+<h3 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h3><p>概述：又称多行处理函数，特点是输入多行，输出一个最终结果；</p>
+<p>一共有5个：</p>
+<p>​    count()    计数</p>
+<p>​    sum()    求和</p>
+<p>​    avg()    求平均值</p>
+<p>​    max()    求最大值</p>
+<p>​    min()    求最小值</p>
+<p>注:</p>
+<p>1.分组函数在使用前必须先对数据进行分组，然后才能使用；如果没有对数据进行分组，就默认整张表是一组。</p>
+<p>2.分组函数会自动忽略null；</p>
+<p>3.count(*)：表示统计该字段下所有不为NULL的元素的总数</p>
+<p>   count(具体字段)：统计表中的总行数（只要有一行数据就count++，并且数据库中不存在一行记录全为null）</p>
+<p>4.分组函数不能直接使用在where子句中//解释在上面</p>
+<p>5.所有的分组函数可以组合起来使用</p>
+<p>​    </p>
+<hr>
+<h3 id="分组查询-非常重要，五颗星"><a href="#分组查询-非常重要，五颗星" class="headerlink" title="分组查询(非常重要，五颗星)"></a>分组查询(非常重要，五颗星)</h3><p>概述：在实际应用中，需要先进行分组，然后对每一组的数据进行操作。这时候我们需要进行分组查询。</p>
+<p>1.格式：</p>
+<p>select    …    from    …    group by    …</p>
+<p>2.重要结论：</p>
+<p>在一条select语句当中，如果有group语句，select后面只能跟：参加分组的字段，以及分组函数。其他的一律不能跟！！！添加其他的没有实际意义而且在其他数据库里面可能会报错。</p>
+<p>（mysql语法相对松散，编译时不会报错；oracle里面就会报错）</p>
+<p>3.技巧：</p>
+<p>1.多个字段合成一个字段来看（多个字段联合分组）</p>
+<p>2.使用having 可以对分完组的数据进一步过滤。having不能单独使用，必须配合group by配合。</p>
+<p>3.having不能代替where，二者有很大的区别。where的执行顺序在group by前，having执行顺序在group by后，因此分组函数可以在having字句中使用，不可以在where字句中使用。</p>
+<p>4.优先策略：where和having，优先使用where，where实在完成不了的再选择having。因为用where筛选后，可以减少分组的工作量，提高运行效率。</p>
+<p>执行顺序：</p>
+<p>第一步    from</p>
+<p>第二步    where</p>
+<p>第三步    group by</p>
+<p>第四步    having（必配合group by使用）</p>
+<p>第五步     select</p>
+<p>第六步     order by（排序总在最后执行！）</p>
+<p>语言描述：先选择数据库中的某张表，先经过where条件筛选出有价值的数据。对这些有价值的数据进行分组，分组之后可以使用having继续筛选，select查询出来，最后排序输出</p>
+<p>书写顺序：</p>
+<p>select</p>
+<p>​    …    </p>
+<p>from</p>
+<p>​    …    </p>
+<p>where</p>
+<p>​    …    </p>
+<p>group by</p>
+<p>​    …    </p>
+<p>having</p>
+<p>​    …    </p>
+<p>order by</p>
+<p>​    …</p>
+<hr>
+<h3 id="distinct关键字"><a href="#distinct关键字" class="headerlink" title="distinct关键字"></a>distinct关键字</h3><p>概述：查询结果中可能会出现重复的数据，此时需要使用distinct关键字。</p>
+<p>注意：distinct关键字只能放在所有字段的最前方，表示去除后面的所有字段的重复数据。</p>
+<hr>
+<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><p>1.概述：从一张表中单独查询，称为单表查询。跨表查询，多张表联合起来查询数据，被称为连接查询。</p>
+<p>2.分类：</p>
+<p>根据年代分类：SQL92，SQL99（分别是1992年和1999年出现的语法）</p>
+<p>根据表的连接方式分类：</p>
+<p>内连接：等值连接，非等值连接，自连接。</p>
+<p>外连接：左外连接（左连接），右外连接（右连接）</p>
+<p>全连接：不讲</p>
+<hr>
+<h3 id="笛卡尔积现象"><a href="#笛卡尔积现象" class="headerlink" title="笛卡尔积现象"></a>笛卡尔积现象</h3><p>当两张表进行连接查询，没有任何条件限制时候，最终查询的条数，是两张表条数的乘积，这种现象被称为笛卡尔乘积。</p>
+<p>避免方法：添加附加的连接条件</p>
+<p>给表起别名可以提高匹配效率。</p>
+<hr>
+<h3 id="内连接之等值连接，非等值连接，自连接"><a href="#内连接之等值连接，非等值连接，自连接" class="headerlink" title="内连接之等值连接，非等值连接，自连接"></a>内连接之等值连接，非等值连接，自连接</h3><p>SQL92语法：select e.ename,d.dname from emp e,dept d where e.deptno=d.deptno;</p>
+<p>SQL99语法：select e.ename,d.dname from emp e join dept d on e.deptno=d.deptno;</p>
+<p>SQL99 优点:结构更清晰，表的连接条件和后期的where的筛选条件进行了区分。</p>
+<p>SQL语法：</p>
+<p>select </p>
+<p>​    …</p>
+<p>from</p>
+<p>​    a</p>
+<p>inner join    //inner可省略</p>
+<p>​    b</p>
+<p>on</p>
+<p>​    a和b的连接条件//条件是等式就是等值连接，不是等式就是非等值连接，表内的查询就是自连接（一张表看成两张表）</p>
+<p>where</p>
+<p>​    筛选条件</p>
+<hr>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
     </div>
 
     
@@ -417,7 +555,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">MYSQL常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">SQL分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE-amp-%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AEor%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">导入数据&amp;查看表的数据or结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">简单查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%88%97%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="nav-number">5.</span> <span class="nav-text">给查询的列起别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%8F%82%E4%B8%8E%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">6.</span> <span class="nav-text">列参与数学运算</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">MYSQL常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">SQL分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE-amp-%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E6%88%96%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">导入数据&amp;查看表的数据或结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">简单查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%88%97%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="nav-number">5.</span> <span class="nav-text">给查询的列起别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%8F%82%E4%B8%8E%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">6.</span> <span class="nav-text">列参与数学运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">7.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%8E%92%E5%BA%8F"><span class="nav-number">8.</span> <span class="nav-text">查询排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="nav-number">9.</span> <span class="nav-text">数据处理函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0"><span class="nav-number">10.</span> <span class="nav-text">分组函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2-%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%8C%E4%BA%94%E9%A2%97%E6%98%9F"><span class="nav-number">11.</span> <span class="nav-text">分组查询(非常重要，五颗星)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinct%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">12.</span> <span class="nav-text">distinct关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="nav-number">13.</span> <span class="nav-text">连接查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%8E%B0%E8%B1%A1"><span class="nav-number">14.</span> <span class="nav-text">笛卡尔积现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5%E4%B9%8B%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5%EF%BC%8C%E9%9D%9E%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5%EF%BC%8C%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="nav-number">15.</span> <span class="nav-text">内连接之等值连接，非等值连接，自连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">16.</span> <span class="nav-text"></span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -497,12 +635,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">37k</span>
+    <span title="站点总字数">40k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">33 分钟</span>
+    <span title="站点阅读时长">36 分钟</span>
 </div>
 
         
