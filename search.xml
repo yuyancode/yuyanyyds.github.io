@@ -482,7 +482,8 @@
   <entry>
     <title>MYSQL笔记</title>
     <url>/2021/11/09/MYSQL%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="MYSQL常用命令"><a href="#MYSQL常用命令" class="headerlink" title="MYSQL常用命令"></a>MYSQL常用命令</h3><p>1.启用/暂停/退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称)//必须要以管理员身份运行命令行cmd，本机已经设置cmd默认管理员身份运行。</p>
+    <content><![CDATA[<p>[TOC]</p>
+<h3 id="MYSQL常用命令"><a href="#MYSQL常用命令" class="headerlink" title="MYSQL常用命令"></a>MYSQL常用命令</h3><p>1.启用/暂停/退出MYSQL服务：启用——&gt;net start mysql80(最后的是本机的mysql 服务名称)//必须要以管理员身份运行命令行cmd，本机已经设置cmd默认管理员身份运行。</p>
 <span id="more"></span>
 
 <p>​                                                      暂停——&gt;net stop mysql80</p>
@@ -629,8 +630,8 @@
 <p>注:</p>
 <p>1.分组函数在使用前必须先对数据进行分组，然后才能使用；如果没有对数据进行分组，就默认整张表是一组。</p>
 <p>2.分组函数会自动忽略null；</p>
-<p>3.count(*)：表示统计该字段下所有不为NULL的元素的总数</p>
-<p>   count(具体字段)：统计表中的总行数（只要有一行数据就count++，并且数据库中不存在一行记录全为null）</p>
+<p>3.count(具体字段)：表示统计该字段下所有不为NULL的元素的总数</p>
+<p>   count(*)：统计表中的总行数（只要有一行数据就count++，并且数据库中不存在一行记录全为null）</p>
 <p>4.分组函数不能直接使用在where子句中//解释在上面</p>
 <p>5.所有的分组函数可以组合起来使用</p>
 <p>​    </p>
@@ -697,8 +698,47 @@
 <p>​    a和b的连接条件//条件是等式就是等值连接，不是等式就是非等值连接，表内的查询就是自连接（一张表看成两张表）</p>
 <p>where</p>
 <p>​    筛选条件</p>
+<p>内连接特点：把完全能够匹配表连接条件的数据查询出来</p>
 <hr>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h4 id="外连接之右（外）连接"><a href="#外连接之右（外）连接" class="headerlink" title="外连接之右（外）连接"></a>外连接之右（外）连接</h4><p>格式：select 左表.字段1，右表.字段2… from 表A名 right（此处省略outer,写不写都可以） join 表B名 on 表连接条件。</p>
+<p>right：表示join关键字右边的表是主表即被匹配表，左表是匹配表，查询出的结果要包含右表中的每一行，意思是把左表中的数据拿来和右表的每一行数据进行匹配，匹配成功就显示出来，若右表中的某一行和左表中的每一行都不匹配，此时左表.字段1显示NULL，右表.字段2正常显示。（若这种情况发生，在内连接时，两个表都不会显示</p>
+<h4 id="外连接之左（外）连接"><a href="#外连接之左（外）连接" class="headerlink" title="外连接之左（外）连接"></a>外连接之左（外）连接</h4><p>格式：select 左表.字段1，右表.字段2… from 表A名 left （此处省略outer,写不写都可以）  join 表B名 on 表连接条件。</p>
+<p>类比右连接，位置关系相反</p>
+<p>注意：</p>
+<p>1.在外连接中，表有主次关系，而内连接中没有。</p>
+<p>2.左连接和右连接可以相互转换。</p>
+<p>3.外连接的查询结果条数一定大于等于内连接的查询结果条数。</p>
+<hr>
+<h3 id="多张表的连接"><a href="#多张表的连接" class="headerlink" title="多张表的连接"></a>多张表的连接</h3><p>语法：</p>
+<p>select </p>
+<p>…</p>
+<p>from</p>
+<p>a</p>
+<p>join </p>
+<p>b </p>
+<p>on </p>
+<p>a,b连接条件</p>
+<p>join</p>
+<p>c</p>
+<p>on</p>
+<p>a,c连接条件</p>
+<p>join</p>
+<p>d</p>
+<p>on</p>
+<p>a,d连接条件；</p>
+<p>注意：一条SQL语句中内连接和外连接可以混合使用。</p>
+<hr>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>概述：select 语句中嵌套select语句，被嵌套的select语句称为子查询。</p>
+<p>位置：</p>
+<p>select</p>
+<p>..(select ).</p>
+<p>from</p>
+<p>..(select).</p>
+<p>where </p>
+<p>..(select ).</p>
+<h4 id="where中的子查询"><a href="#where中的子查询" class="headerlink" title="where中的子查询"></a>where中的子查询</h4><p>一般是利用子查询处理分组函数，得到结果当做where的筛选条件</p>
+<h4 id="from子句的子条件"><a href="#from子句的子条件" class="headerlink" title="from子句的子条件"></a>from子句的子条件</h4><p>注：from后面的子查询，可以将子查询的查询结果当做临时表</p>
+]]></content>
       <categories>
         <category>MYSQL</category>
       </categories>
