@@ -600,7 +600,7 @@
 <p>不建议使用，因为不健壮，列的顺序很容易发生改变。</p>
 <p>注：select后面可以跟某个字段名（看做变量）或者字面量/字面值</p>
 <hr>
-<h3 id="数据处理函数"><a href="#数据处理函数" class="headerlink" title="数据处理函数"></a>数据处理函数</h3><p>概述：数据处理函数又被称为单行处理函数。</p>
+<h3 id="单行处理函数"><a href="#单行处理函数" class="headerlink" title="单行处理函数"></a>单行处理函数</h3><p>概述：数据处理函数又被称为单行处理函数。</p>
 <p>单行处理函数的特点：一个输入对应一个输出。</p>
 <p>和单行处理函数对应的是多行处理函数：多个输入对应一个输出。</p>
 <p>常见的单行处理函数：</p>
@@ -612,8 +612,20 @@
 <p>length()    取字符串长度</p>
 <p>trim()    去除字符串中的空格</p>
 <p>str_to_date()     将字符串转换成日期</p>
-<p>date_format    格式化日期</p>
-<p>format()    设置千分位</p>
+<p>概述：将字符串varchar转换成date类型，通常使用在insert后面</p>
+<p>格式：str_to_date(‘字符串日期’,    ‘日期格式’)</p>
+<p>mysql的日期格式（将你写的字符串日期格式里的对应数字换成下面的符号就得到了你的日期格式）</p>
+<p>%Y    年</p>
+<p>%m    月</p>
+<p>%d    日</p>
+<p>%h    时</p>
+<p>%i    分</p>
+<p>%s    秒    </p>
+<p>注意：如果你提供的日期格式是%Y-%m-%d，那么就不用str_to_date()了，mysql会自动把字符串转换成date。</p>
+<p>date_format(date类型数据,    ‘日期格式’)    格式化日期，date转换成字符串</p>
+<p>概述：这个函数通常使用在查询日期方面，设置展示的日期</p>
+<p>注意：当你不用date_format(date类型数据,    ‘日期格式’)函数时，select后的date类型数据会自动转换成varchar类型，并且固定展示成’%Y-%m-%d’</p>
+<p>format(数字，格式‘$999,999’)    设置千分位</p>
 <p>round(num,保留小数位数)    四舍五入//如果是负数就是继续往左边四舍五入个，十，百，千，万。。。</p>
 <p>rand()    生成0-1内的随机数</p>
 <p>ifnull(数据，代替值)    空处理函数，当数据为NULL时，数据就会被代替值代替//注意在数据库中，只要有NULL参与的数学运算式，其结果就是NULL，但分组函数自动忽略NULL；</p>
@@ -656,18 +668,7 @@
 <p>第六步     order by（排序总在最后执行！）</p>
 <p>语言描述：先选择数据库中的某张表，先经过where条件筛选出有价值的数据。对这些有价值的数据进行分组，分组之后可以使用having继续筛选，select查询出来，最后排序输出</p>
 <p>书写顺序：</p>
-<p>select</p>
-<p>​    …    </p>
-<p>from</p>
-<p>​    …    </p>
-<p>where</p>
-<p>​    …    </p>
-<p>group by</p>
-<p>​    …    </p>
-<p>having</p>
-<p>​    …    </p>
-<p>order by</p>
-<p>​    …</p>
+<p>select…    from    …    where    …    group by    …    having    …    order by    …    limit    ….</p>
 <hr>
 <h3 id="distinct关键字"><a href="#distinct关键字" class="headerlink" title="distinct关键字"></a>distinct关键字</h3><p>概述：查询结果中可能会出现重复的数据，此时需要使用distinct关键字。</p>
 <p>注意：distinct关键字只能放在所有字段的最前方，表示去除后面的所有字段的重复数据。</p>
@@ -710,22 +711,10 @@
 <p>3.外连接的查询结果条数一定大于等于内连接的查询结果条数。</p>
 <hr>
 <h3 id="多张表的连接"><a href="#多张表的连接" class="headerlink" title="多张表的连接"></a>多张表的连接</h3><p>语法：</p>
-<p>select </p>
-<p>…</p>
-<p>from</p>
-<p>a</p>
-<p>join </p>
-<p>b </p>
-<p>on </p>
-<p>a,b连接条件</p>
-<p>join</p>
-<p>c</p>
-<p>on</p>
-<p>a,c连接条件</p>
-<p>join</p>
-<p>d</p>
-<p>on</p>
-<p>a,d连接条件；</p>
+<p>select …from     a     </p>
+<p>join      b     on      a,b连接条件    </p>
+<p>join     c    on    a,c连接条件</p>
+<p>join    d    on    a,d连接条件；</p>
 <p>注意：一条SQL语句中内连接和外连接可以混合使用。</p>
 <hr>
 <h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>概述：select 语句中嵌套select语句，被嵌套的select语句称为子查询。</p>
@@ -737,8 +726,85 @@
 <p>where </p>
 <p>..(select ).</p>
 <h4 id="where中的子查询"><a href="#where中的子查询" class="headerlink" title="where中的子查询"></a>where中的子查询</h4><p>一般是利用子查询处理分组函数，得到结果当做where的筛选条件</p>
-<h4 id="from子句的子条件"><a href="#from子句的子条件" class="headerlink" title="from子句的子条件"></a>from子句的子条件</h4><p>注：from后面的子查询，可以将子查询的查询结果当做临时表</p>
-]]></content>
+<h4 id="from子句的子查询"><a href="#from子句的子查询" class="headerlink" title="from子句的子查询"></a>from子句的子查询</h4><p>注：from后面的子查询，可以将子查询的查询结果当做临时表</p>
+<h4 id="select后的子查询"><a href="#select后的子查询" class="headerlink" title="select后的子查询"></a>select后的子查询</h4><p>就是把where后面的的筛选条件改写到select后面，注意此时子查询一次返回的记录数目只能为1，不然会报错。</p>
+<hr>
+<h3 id="union合并查询结果集"><a href="#union合并查询结果集" class="headerlink" title="union合并查询结果集"></a>union合并查询结果集</h3><p>union的效率要高一些，对于表的连接来说，没连接一次新表，则匹配的次数满足笛卡尔积，成倍的翻。但union可以减少匹配次数，在减少匹配次数的情况下，还可以完成两个结果集的合并。union把乘法变成了加法，减少了连接次数。</p>
+<p>格式：</p>
+<p>select….(后面省略，是一个完整的查询语句)//注意此处没有分号，语句还没有写完</p>
+<p>union</p>
+<p>select…(后面省略，是另一个完整的查询语句)；</p>
+<p>注意：</p>
+<p>1.union在进行结果集合并的时候，要求两个结果的列数相同。</p>
+<p>2.合并集合的对应列的数据类型也要一致（在没有mysql里面不会报错，在oracle里面会报错。）</p>
+<hr>
+<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><p>概述：limit是将查询结果集的一部分取出来，通常使用在分页查询之中。分页的作用是为了提高用户体验，一次都提取出来会不方便阅读，limit可以分页查看。</p>
+<p>格式：select …  一个完整的查询语句…  limit startIndex，length/num；</p>
+<p>解释：</p>
+<p>完整用法： limit startIndex，length</p>
+<p>startIndex是起始下标最小是0，length是要提取的数量。</p>
+<p>缺省用法：limit num</p>
+<p>直接提取前num位</p>
+<p>注意：mysql中limit在order后执行！！！！！！！！</p>
+<h4 id="通用分页"><a href="#通用分页" class="headerlink" title="通用分页"></a>通用分页</h4><p>公式：limit （页数-1）*每页数据条数，每页数据条数；</p>
+<hr>
+<h3 id="表的创建和删除"><a href="#表的创建和删除" class="headerlink" title="表的创建和删除"></a>表的创建和删除</h3><p>1.概述：建表，删除属于DDL语句，DDL包括create，drop，alter；</p>
+<p>2.建表的格式：</p>
+<p>create    table    表名（</p>
+<p>字段1    数据类型，</p>
+<p>字段2    数据类型，</p>
+<p>字段3    数据类型）；    </p>
+<p>3.表名建议：以    t_    或者    tbl_    开始，可读性强，见名知意。            </p>
+<p>4.mysql中的部分常用数据类型：</p>
+<p>varchar ：最长255位，可变长度的字符串，根据实际的数据长度动态分配空间，但速度慢。</p>
+<p>char：最长255位，定长字符串，不管实际的数据长度是多少，分配固定长度的空间存储数据，速度快，但使用不恰当会导致空间的浪费。</p>
+<p>int：最长11位，数字中的整数型，等同于java中的int</p>
+<p>bigint：数字中的长整型，等同与java中的long</p>
+<p>float：单精度浮点型</p>
+<p>double：双精度浮点型</p>
+<p>date：短日期类型</p>
+<p>datetime：长日期类型</p>
+<p>clob：字符大对象，最多可以存储4G的字符串，超过255个字的都要采用这个来存储，全称：Character Large OBject</p>
+<p>blob：二进制大对象，全称Binary Large OBject，专门用来存储图片，声音，视频等流媒体数据。往BLOB类型的字段上插入数据的时候，必须采用IO流。</p>
+<p>5.删除表:</p>
+<p>drop table 表名；//注意当表不存在的时候会报错</p>
+<p>另一种种写法：drop     table     if     exists     表名;//防止表不存在</p>
+<hr>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>1.格式：insert into 表名（字段1,字段2,字段3…)    values(值1,值2,值3…);</p>
+<p>注意：</p>
+<p>1.字段名要和值一一对应，即数量和数据类型要对应。这里的字段是创建表的时候指定写好的。不给字段指定值默认NULL。</p>
+<p>2.insert语句执行成功一定会多一条记录。</p>
+<p>3.建表的时候default可以指定字段不给出的时候的默认值。</p>
+<p>4.insert插入记录是从上到下依次插入的</p>
+<p>create    table    表名（</p>
+<p>字段1    数据类型    default     默认值1，</p>
+<p>字段2    数据类型    default     默认值2，</p>
+<p>字段3    数据类型    default     默认值3）；    </p>
+<p>4.如果insert的字段命都不写就默认是写上了所有的字段名，所有的值都要写上。</p>
+<p>insert into 表名    values(值1,值2,值3…);</p>
+<p>5.insert语句插入多条记录</p>
+<p>insert into 表名（字段1,字段2,字段3…)    values(值1,值2,值3…),    (值4,值5,值6…),    (值7,值8,值9…),    (值10,值11,值12…);</p>
+<p>6.将插入结果插入一张表</p>
+<p>insert    into    表名    select    要插入的内容;</p>
+<p>上面插入了四行数据</p>
+<p>数据库中的命名规则：所有的标识符全都小写，单词和单词之间用下划线 _ 分隔开</p>
+<hr>
+<h3 id="date和datetime区别"><a href="#date和datetime区别" class="headerlink" title="date和datetime区别"></a>date和datetime区别</h3><p>date：短日期，只包括年月日信息</p>
+<p>datetime：长日期，包括年月日时分秒信息</p>
+<p>mysql短日期默认格式：%Y-%m-%d</p>
+<p>mysql长日期默认格式：%Y-%m-%d     %h-%i-%s</p>
+<p>now()    获取系统当前时间，并且是长日期的格式。</p>
+<hr>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><p>1.格式：update    表名    set    字段名1=值1，字段名2=值2，字段名3=值3    …    where    条件;</p>
+<p>注意：没有条件限制会导致所有数据全部更新。</p>
+<hr>
+<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h3><p>1.格式：delete    from    表名    where     条件；//删除表所有满足条件的行</p>
+<p>2.注意：不加条件会删除所有的数据</p>
+<hr>
+<h3 id="快速复制表"><a href="#快速复制表" class="headerlink" title="快速复制表"></a>快速复制表</h3><p>create    table    表名1    select     *    from    表名2（已存在）;</p>
+<p>这个就是把表2完全复制给表1</p>
+<hr>
+<h3 id="快速删除表中的数据"><a href="#快速删除表中的数据" class="headerlink" title="快速删除表中的数据"></a>快速删除表中的数据</h3>]]></content>
       <categories>
         <category>MYSQL</category>
       </categories>
